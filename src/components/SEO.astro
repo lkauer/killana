@@ -1,0 +1,100 @@
+---
+import type { Translation } from '@/i18n/types';
+import { getAlternateUrls, getCanonicalUrl } from '@/i18n';
+import { SITE_URL, CONTACT } from '@/data/site';
+
+interface Props {
+  t: Translation;
+  ogImage?: string;
+}
+
+const { t, ogImage = 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=1200&q=80&fm=jpg' } = Astro.props;
+const canonical = getCanonicalUrl(t.locale);
+const alternates = getAlternateUrls(t.locale);
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Killana',
+  alternateName: 'Killana Calçados',
+  url: SITE_URL,
+  logo: `${SITE_URL}/favicon.svg`,
+  description: t.meta.description,
+  foundingDate: '1997',
+  foundingLocation: {
+    '@type': 'Place',
+    name: 'Três Coroas, Rio Grande do Sul, Brazil',
+  },
+  sameAs: [
+    'https://www.instagram.com/killana.calcados/',
+    'https://www.facebook.com/killanacalcados',
+    'https://www.linkedin.com/company/killana',
+    'https://www.killana.com.br',
+  ],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'sales',
+    telephone: '+55-51-98533-616',
+    availableLanguage: ['Portuguese', 'English', 'Spanish'],
+  },
+};
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': `${SITE_URL}/#localbusiness`,
+  name: 'Killana Calçados',
+  image: ogImage,
+  url: SITE_URL,
+  telephone: '+55-51-98533-616',
+  email: CONTACT.email,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: CONTACT.address.street,
+    addressLocality: CONTACT.address.city,
+    addressRegion: CONTACT.address.state,
+    postalCode: CONTACT.address.postalCode,
+    addressCountry: 'BR',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: -29.5167,
+    longitude: -50.7833,
+  },
+  description: t.meta.description,
+  priceRange: '$$$',
+};
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content={t.meta.description} />
+<meta name="author" content="Killana Calçados" />
+<link rel="canonical" href={canonical} />
+
+{alternates.map((alt) => (
+  <link rel="alternate" hreflang={alt.langTag} href={alt.url} />
+))}
+<link rel="alternate" hreflang="x-default" href={SITE_URL} />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={t.meta.ogTitle} />
+<meta property="og:description" content={t.meta.ogDescription} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:locale" content={t.langTag} />
+{alternates
+  .filter((alt) => alt.locale !== t.locale)
+  .map((alt) => (
+    <meta property="og:locale:alternate" content={alt.langTag} />
+  ))}
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={t.meta.ogTitle} />
+<meta name="twitter:description" content={t.meta.ogDescription} />
+<meta name="twitter:image" content={ogImage} />
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />

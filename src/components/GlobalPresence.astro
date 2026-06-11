@@ -1,0 +1,75 @@
+---
+import type { Translation } from '@/i18n/types';
+import WorldMap from './icons/WorldMap.astro';
+import { COUNTERS } from '@/data/site';
+
+interface Props {
+  t: Translation;
+}
+
+const { t } = Astro.props;
+---
+
+<section class="section-padding bg-softblack text-offwhite" id="global" data-cms="global">
+  <div class="container-killana grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <div class="fade-in">
+      <span class="eyebrow eyebrow-light">{t.global.eyebrow}</span>
+      <h2 class="section-title section-title-light mb-8">{t.global.title}</h2>
+
+      <div class="space-y-4 text-offwhite/80 text-sm md:text-[0.9375rem] leading-relaxed mb-8">
+        {t.global.paragraphs.map((p, i) => (
+          <p>
+            {i === 2 ? (
+              <>
+                {p.split('MICAM Milano')[0]}
+                <strong class="text-gold-light font-medium">{t.global.micam}</strong>
+                {p.split('MICAM Milano')[1]}
+              </>
+            ) : p}
+          </p>
+        ))}
+        <p class="text-gold text-sm tracking-wide pt-2">
+          {t.global.partner.replace(
+            t.global.brazilianFootwear,
+            ''
+          ).trim()}{' '}
+          <strong class="text-gold-light">{t.global.brazilianFootwear}</strong>
+        </p>
+      </div>
+
+      <div
+        class="flex flex-col sm:flex-row gap-8 sm:gap-12 pt-10 border-t border-gold/20"
+        id="counters"
+        data-countries={COUNTERS.countries}
+        data-continents={COUNTERS.continents}
+        data-years={COUNTERS.years}
+      >
+        <div>
+          <span class="counter block font-serif text-4xl md:text-5xl text-gold font-light leading-none mb-2" data-target={COUNTERS.countries} data-suffix="+">0</span>
+          <span class="text-xs tracking-widest uppercase text-offwhite/60">{t.global.counters.countries}</span>
+        </div>
+        <div>
+          <span class="counter block font-serif text-4xl md:text-5xl text-gold font-light leading-none mb-2" data-target={COUNTERS.continents}>0</span>
+          <span class="text-xs tracking-widest uppercase text-offwhite/60">{t.global.counters.continents}</span>
+        </div>
+        <div>
+          <span class="counter block font-serif text-4xl md:text-5xl text-gold font-light leading-none mb-2" data-target={COUNTERS.years}>0</span>
+          <span class="text-xs tracking-widest uppercase text-offwhite/60">{t.global.counters.years}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fade-in" data-delay="200">
+      <div class="p-5">
+        <WorldMap />
+      </div>
+      <ul class="flex flex-wrap gap-2 justify-center mt-6" aria-label="Countries served">
+        {t.global.countries.map((country) => (
+          <li class="text-[10px] tracking-widest uppercase text-offwhite/50 px-3 py-1.5 border border-gold/20 hover:text-gold hover:border-gold transition-colors duration-300">
+            {country}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

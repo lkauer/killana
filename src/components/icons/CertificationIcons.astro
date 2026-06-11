@@ -1,0 +1,33 @@
+---
+interface Props {
+  index: number;
+  class?: string;
+}
+
+const { index, class: className = 'w-10 h-10' } = Astro.props;
+---
+
+{index === 0 && (
+  <svg class={className} viewBox="0 0 48 48" fill="none" aria-hidden="true">
+    <path d="M24 4l4 8h9l-7 6 3 9-9-6-9 6 3-9-7-6h9l4-8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+  </svg>
+)}
+{index === 1 && (
+  <svg class={className} viewBox="0 0 48 48" fill="none" aria-hidden="true">
+    <rect x="8" y="12" width="32" height="28" rx="2" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M16 12V8a8 8 0 0116 0v4" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M20 26l4 4 8-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+)}
+{index === 4 && (
+  <svg class={className} viewBox="0 0 48 48" fill="none" aria-hidden="true">
+    <path d="M24 44s16-10 16-24a16 16 0 10-32 0c0 14 16 24 16 24z" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M18 20c2-4 6-6 6-6s4 2 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  </svg>
+)}
+{index === 5 && (
+  <svg class={className} viewBox="0 0 48 48" fill="none" aria-hidden="true">
+    <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M24 14v10l6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  </svg>
+)}

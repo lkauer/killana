@@ -1,0 +1,38 @@
+---
+import '@/styles/global.css';
+import type { Translation } from '@/i18n/types';
+import SEO from '@/components/SEO.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import WhatsAppFloat from '@/components/WhatsAppFloat.astro';
+
+interface Props {
+  t: Translation;
+  title?: string;
+}
+
+const { t, title = t.meta.title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={t.langTag}>
+  <head>
+    <SEO t={t} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <Header t={t} />
+    <main>
+      <slot />
+    </main>
+    <Footer t={t} />
+    <WhatsAppFloat label={t.whatsapp.floatLabel} />
+    <script src="/scripts/main.js" defer></script>
+  </body>
+</html>

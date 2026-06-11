@@ -1,0 +1,34 @@
+---
+import type { Translation } from '@/i18n/types';
+import ProductionIcons from './icons/ProductionIcons.astro';
+
+interface Props {
+  t: Translation;
+}
+
+const { t } = Astro.props;
+---
+
+<section class="section-padding" id="producao" data-cms="production">
+  <div class="container-killana">
+    <header class="text-center mb-12 md:mb-16 fade-in">
+      <span class="eyebrow">{t.production.eyebrow}</span>
+      <h2 class="section-title">{t.production.title}</h2>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+      {t.production.cards.map((card, i) => (
+        <article
+          class="group p-8 md:p-10 lg:p-12 bg-white border border-leather/10 hover:-translate-y-1 hover:shadow-card transition-all duration-400 ease-luxury fade-in"
+          data-delay={i * 100}
+        >
+          <div class="text-gold mb-6 transition-transform duration-400 group-hover:scale-110">
+            <ProductionIcons type={card.icon} />
+          </div>
+          <h3 class="font-serif text-2xl font-medium mb-4">{card.title}</h3>
+          <p class="text-sm md:text-[0.9375rem] leading-relaxed text-softblack/75">{card.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

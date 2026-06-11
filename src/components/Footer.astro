@@ -1,0 +1,85 @@
+---
+import type { Translation } from '@/i18n/types';
+import { CONTACT, SOCIAL_LINKS, WHATSAPP_URL } from '@/data/site';
+
+interface Props {
+  t: Translation;
+}
+
+const { t } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-softblack text-offwhite/70 pt-16 md:pt-20" data-cms="footer">
+  <div class="container-killana grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-offwhite/10">
+    <div>
+      <span class="font-serif text-2xl font-medium tracking-widest text-offwhite block mb-3">Killana</span>
+      <p class="text-sm text-offwhite/50 mb-5">{t.footer.tagline}</p>
+      <address class="text-sm not-italic leading-relaxed">
+        {t.footer.location}<br />
+        {CONTACT.address.street}
+      </address>
+    </div>
+
+    <nav aria-label="Institutional links">
+      <h4 class="text-[11px] font-medium tracking-[0.15em] uppercase text-gold mb-5">{t.footer.institutional}</h4>
+      <ul class="space-y-2.5 text-sm">
+        <li><a href="#institucional" class="hover:text-gold-light transition-colors">{t.footer.links.about}</a></li>
+        <li><a href="#producao" class="hover:text-gold-light transition-colors">{t.footer.links.production}</a></li>
+        <li><a href="#sobre" class="hover:text-gold-light transition-colors">{t.footer.links.history}</a></li>
+        <li><a href="#certificacoes" class="hover:text-gold-light transition-colors">{t.footer.links.certifications}</a></li>
+        <li><a href="#global" class="hover:text-gold-light transition-colors">{t.footer.links.global}</a></li>
+      </ul>
+    </nav>
+
+    <div>
+      <h4 class="text-[11px] font-medium tracking-[0.15em] uppercase text-gold mb-5">{t.footer.commercial}</h4>
+      <ul class="space-y-2.5 text-sm">
+        <li>
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="hover:text-gold-light transition-colors">
+            {t.whatsapp.label}
+          </a>
+        </li>
+        <li>
+          <a href={`mailto:${CONTACT.email}`} class="hover:text-gold-light transition-colors">{CONTACT.email}</a>
+        </li>
+        <li>
+          <a href={CONTACT.website} target="_blank" rel="noopener noreferrer" class="hover:text-gold-light transition-colors">
+            killana.com.br
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-[11px] font-medium tracking-[0.15em] uppercase text-gold mb-5">{t.footer.social}</h4>
+      <ul class="flex gap-4">
+        <li>
+          <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="flex items-center justify-center w-10 h-10 rounded-full border border-offwhite/15 hover:border-gold hover:text-gold transition-all hover:-translate-y-0.5">
+            <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="flex items-center justify-center w-10 h-10 rounded-full border border-offwhite/15 hover:border-gold hover:text-gold transition-all hover:-translate-y-0.5">
+            <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="flex items-center justify-center w-10 h-10 rounded-full border border-offwhite/15 hover:border-gold hover:text-gold transition-all hover:-translate-y-0.5">
+            <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-13h4v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="1.5"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container-killana flex flex-col sm:flex-row justify-between items-center gap-3 py-6 text-xs text-offwhite/40">
+    <p>&copy; {year} Killana Calçados. {t.footer.rights}</p>
+    <p>
+      {t.footer.partner}{' '}
+      <a href="https://brazilianfootwear.com" target="_blank" rel="noopener noreferrer" class="text-gold hover:text-gold-light transition-colors">
+        Brazilian Footwear
+      </a>
+    </p>
+  </div>
+</footer>

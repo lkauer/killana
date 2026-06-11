@@ -1,0 +1,48 @@
+---
+import type { Translation } from '@/i18n/types';
+import CertificationIcons from './icons/CertificationIcons.astro';
+
+interface Props {
+  t: Translation;
+}
+
+const { t } = Astro.props;
+
+const iconIndices = [0, 1, null, null, 4, 5];
+---
+
+<section class="section-padding bg-beige" id="certificacoes" data-cms="certifications">
+  <div class="container-killana">
+    <header class="text-center mb-12 md:mb-16 fade-in">
+      <span class="eyebrow">{t.certifications.eyebrow}</span>
+      <h2 class="section-title">{t.certifications.title}</h2>
+    </header>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {t.certifications.items.map((item, i) => (
+        <article
+          class:list={[
+            'p-8 md:p-10 text-center border hover:-translate-y-1 hover:shadow-card transition-all duration-400 ease-luxury fade-in',
+            item.type === 'seal' ? 'bg-offwhite border-gold' : 'bg-white border-leather/10',
+          ]}
+          data-delay={i * 80}
+        >
+          {item.type === 'seal' ? (
+            <div
+              class="inline-flex items-center justify-center w-[72px] h-[72px] rounded-full border-2 border-leather bg-beige font-serif text-sm font-semibold tracking-wide text-leather mx-auto mb-5"
+              data-cms-seal={item.seal}
+            >
+              {item.seal}
+            </div>
+          ) : (
+            <div class="text-gold mx-auto mb-5 w-10 h-10">
+              <CertificationIcons index={iconIndices[i] ?? 0} />
+            </div>
+          )}
+          <h3 class="font-serif text-xl font-medium mb-3">{item.title}</h3>
+          <p class="text-sm leading-relaxed text-softblack/70">{item.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

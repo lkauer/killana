@@ -1,0 +1,53 @@
+---
+import { Image } from 'astro:assets';
+import type { Translation } from '@/i18n/types';
+
+interface Props {
+  t: Translation;
+}
+
+const { t } = Astro.props;
+
+const gridClasses = [
+  'md:col-span-5 md:row-span-2',
+  'md:col-span-4',
+  'md:col-span-3',
+  'md:col-span-7',
+  'md:col-span-3',
+  'md:col-span-4 md:row-span-2',
+];
+---
+
+<section class="section-padding" id="colecao" data-cms="collection">
+  <div class="container-killana">
+    <header class="mb-12 md:mb-16 fade-in">
+      <span class="eyebrow">{t.collection.eyebrow}</span>
+      <h2 class="section-title">{t.collection.title}</h2>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
+      {t.collection.items.map((item, i) => (
+        <figure
+          class:list={['group relative overflow-hidden fade-in', gridClasses[i]]}
+          data-delay={i * 80}
+          data-cms-item
+        >
+          <div class="overflow-hidden bg-beige min-h-[280px] md:min-h-[320px] h-full">
+            <Image
+              src={item.image}
+              alt={item.alt}
+              width={800}
+              height={1000}
+              class="w-full h-full object-cover transition-transform duration-700 ease-luxury group-hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+          <figcaption class="absolute bottom-0 left-0 right-0 p-5 md:p-6 bg-gradient-to-t from-softblack/70 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-400 ease-luxury md:translate-y-0 md:opacity-0 md:group-hover:opacity-100">
+            <span class="block text-[10px] tracking-[0.15em] uppercase text-gold-light mb-1">{item.category}</span>
+            <span class="font-serif text-lg italic text-offwhite">{item.name}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

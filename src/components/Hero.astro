@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets';
+import type { Translation } from '@/i18n/types';
+import { WHATSAPP_URL } from '@/data/site';
+
+interface Props {
+  t: Translation;
+}
+
+const { t } = Astro.props;
+const heroSrc = 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=1920&q=80&fm=webp';
+---
+
+<section class="relative min-h-screen min-h-dvh flex items-center justify-center overflow-hidden" id="hero">
+  <div id="hero-parallax" class="absolute inset-0 will-change-transform">
+    <Image
+      src={heroSrc}
+      alt="Killana handcrafted luxury women's footwear"
+      width={1920}
+      height={1080}
+      class="w-full h-[120%] object-cover object-[center_30%]"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </div>
+  <div class="absolute inset-0 bg-gradient-to-b from-softblack/30 via-softblack/50 to-softblack/65 z-[1]"></div>
+
+  <div class="relative z-[2] container-killana text-center max-w-3xl pt-28 pb-20 text-offwhite fade-in is-visible">
+    <p class="text-xs font-medium tracking-[0.25em] uppercase text-gold-light mb-5">{t.hero.eyebrow}</p>
+    <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-light leading-none tracking-wide mb-7">
+      {t.hero.title}
+    </h1>
+    <p class="text-base md:text-lg leading-relaxed text-offwhite/90 mb-10 max-w-2xl mx-auto">
+      {t.hero.text}
+    </p>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="#colecao" class="btn-primary">{t.hero.ctaCollection}</a>
+      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="btn-outline">
+        {t.hero.ctaCatalog}
+      </a>
+    </div>
+  </div>
+
+  <a href="#colecao" class="absolute bottom-10 left-1/2 -translate-x-1/2 z-[2] opacity-70 hover:opacity-100 transition-opacity" aria-label="Scroll to collection">
+    <span class="block w-px h-14 bg-gradient-to-b from-gold to-transparent animate-scroll-line"></span>
+  </a>
+</section>

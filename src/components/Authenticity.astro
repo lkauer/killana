@@ -1,0 +1,42 @@
+---
+import { Image } from 'astro:assets';
+import type { Translation } from '@/i18n/types';
+
+interface Props {
+  t: Translation;
+}
+
+const { t } = Astro.props;
+const editorialSrc = 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=80&fm=webp';
+---
+
+<section class="section-padding bg-beige" id="institucional" data-cms="authenticity">
+  <div class="container-killana grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <div class="fade-in order-2 lg:order-1">
+      <span class="eyebrow">{t.authenticity.eyebrow}</span>
+      <h2 class="section-title mb-8">{t.authenticity.title}</h2>
+      <div class="space-y-5 text-softblack/85 text-base md:text-[1.0625rem] leading-relaxed">
+        {t.authenticity.paragraphs.map((p) => (
+          <p>{p}</p>
+        ))}
+        <p class="font-serif text-xl md:text-2xl italic text-leather leading-snug pt-4">
+          {t.authenticity.highlight}
+        </p>
+      </div>
+    </div>
+
+    <div class="relative fade-in order-1 lg:order-2 max-w-lg mx-auto lg:max-w-none" data-delay="200">
+      <div class="overflow-hidden aspect-[4/5]">
+        <Image
+          src={editorialSrc}
+          alt={t.authenticity.imageAlt}
+          width={800}
+          height={1000}
+          class="w-full h-full object-cover transition-transform duration-1000 ease-out hover:scale-[1.03]"
+          loading="lazy"
+        />
+      </div>
+      <div class="absolute -bottom-6 -left-6 w-3/5 h-3/5 border border-gold -z-10" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>

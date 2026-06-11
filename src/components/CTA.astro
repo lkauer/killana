@@ -1,0 +1,33 @@
+---
+import type { Translation } from '@/i18n/types';
+import { WHATSAPP_URL } from '@/data/site';
+
+interface Props {
+  t: Translation;
+}
+
+const { t } = Astro.props;
+const ctaBg = 'https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1600&q=80&fm=webp';
+---
+
+<section class="relative overflow-hidden" id="contato" data-cms="cta">
+  <div
+    class="absolute inset-0 bg-cover bg-center"
+    style={`background-image: linear-gradient(135deg, rgba(31,31,31,0.92), rgba(139,106,78,0.85)), url('${ctaBg}')`}
+    aria-hidden="true"
+  ></div>
+
+  <div class="relative z-10 container-killana text-center py-24 md:py-32 lg:py-40 text-offwhite fade-in">
+    <span class="eyebrow eyebrow-light">{t.cta.eyebrow}</span>
+    <h2 class="font-serif text-3xl md:text-5xl lg:text-6xl font-normal mb-6">{t.cta.title}</h2>
+    <p class="text-base md:text-lg text-offwhite/85 max-w-lg mx-auto mb-10">{t.cta.text}</p>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="btn-primary btn-large">
+        {t.cta.button}
+      </a>
+      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="btn-outline">
+        {t.cta.contact}
+      </a>
+    </div>
+  </div>
+</section>

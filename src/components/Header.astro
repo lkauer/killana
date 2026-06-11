@@ -1,0 +1,100 @@
+---
+import type { Translation } from '@/i18n/types';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import { WHATSAPP_URL } from '@/data/site';
+
+interface Props {
+  t: Translation;
+}
+
+const { t } = Astro.props;
+---
+
+<header
+  id="header"
+  class="fixed top-0 left-0 right-0 z-50 h-16 md:h-20 transition-all duration-400 ease-luxury header-transparent"
+>
+  <div class="container-killana h-full flex items-center justify-between">
+    <a href={t.path} class="font-serif text-2xl md:text-[1.75rem] font-medium tracking-widest text-offwhite header-logo transition-colors duration-400">
+      Killana
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-8 xl:gap-10" aria-label="Main navigation">
+      {t.nav.map((item) => (
+        <a href={item.href} class="nav-link text-offwhite header-link">
+          {item.label}
+        </a>
+      ))}
+      <LanguageSwitcher currentLocale={t.locale} />
+    </nav>
+
+    <div class="flex items-center gap-4 lg:hidden">
+      <LanguageSwitcher currentLocale={t.locale} />
+      <button
+        id="nav-toggle"
+        class="flex flex-col justify-center gap-1.5 w-8 h-8"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span class="block w-full h-px bg-offwhite header-toggle transition-colors duration-400"></span>
+        <span class="block w-full h-px bg-offwhite header-toggle transition-colors duration-400"></span>
+        <span class="block w-full h-px bg-offwhite header-toggle transition-colors duration-400"></span>
+      </button>
+    </div>
+  </div>
+
+  <nav
+    id="mobile-menu"
+    class="lg:hidden fixed inset-0 top-16 bg-offwhite/98 backdrop-blur-md flex items-center justify-center opacity-0 invisible transition-all duration-400"
+    aria-label="Mobile navigation"
+  >
+    <ul class="flex flex-col items-center gap-8">
+      {t.nav.map((item) => (
+        <li>
+          <a href={item.href} class="nav-link text-softblack text-sm mobile-nav-link">
+            {item.label}
+          </a>
+        </li>
+      ))}
+      <li>
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary"
+        >
+          {t.cta.catalog}
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .header-scrolled {
+    @apply bg-offwhite/95 backdrop-blur-md shadow-soft;
+  }
+  .header-scrolled .header-logo,
+  .header-scrolled .header-link {
+    @apply text-softblack;
+  }
+  .header-scrolled .header-toggle {
+    @apply bg-softblack;
+  }
+  #mobile-menu.is-open {
+    @apply opacity-100 visible;
+  }
+  #nav-toggle.is-active span:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+  }
+  #nav-toggle.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+  #nav-toggle.is-active span:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+  }
+  #nav-toggle span {
+    transition: all 0.25s ease;
+  }
+</style>

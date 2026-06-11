@@ -1,0 +1,25 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/Hero.astro';
+import Collection from '@/components/Collection.astro';
+import Authenticity from '@/components/Authenticity.astro';
+import ConsciousProduction from '@/components/ConsciousProduction.astro';
+import GlobalPresence from '@/components/GlobalPresence.astro';
+import About from '@/components/About.astro';
+import Certifications from '@/components/Certifications.astro';
+import CTA from '@/components/CTA.astro';
+import { getTranslation } from '@/i18n';
+
+const t = getTranslation('en');
+---
+
+<BaseLayout t={t}>
+  <Hero t={t} />
+  <Collection t={t} />
+  <Authenticity t={t} />
+  <ConsciousProduction t={t} />
+  <GlobalPresence t={t} />
+  <About t={t} />
+  <Certifications t={t} />
+  <CTA t={t} />
+</BaseLayout>

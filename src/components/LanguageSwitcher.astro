@@ -1,0 +1,34 @@
+---
+import type { Locale } from '@/i18n/types';
+import { getAllLocales, getLocalePath } from '@/i18n';
+
+interface Props {
+  currentLocale: Locale;
+}
+
+const { currentLocale } = Astro.props;
+const locales: { code: Locale; label: string }[] = [
+  { code: 'pt', label: 'PT' },
+  { code: 'en', label: 'EN' },
+  { code: 'es', label: 'ES' },
+];
+---
+
+<div class="flex items-center gap-1 text-xs tracking-widest" role="navigation" aria-label="Language selector">
+  {locales.map((locale, i) => (
+    <>
+      {i > 0 && <span class="text-gold/40 mx-1" aria-hidden="true">|</span>}
+      {locale.code === currentLocale ? (
+        <span class="text-gold font-medium" aria-current="page">{locale.label}</span>
+      ) : (
+        <a
+          href={getLocalePath(locale.code)}
+          class="text-current opacity-60 hover:opacity-100 hover:text-gold transition-all duration-300"
+          hreflang={locale.code}
+        >
+          {locale.label}
+        </a>
+      )}
+    </>
+  ))}
+</div>

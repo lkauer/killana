@@ -1,0 +1,41 @@
+---
+// Stylized world map with country markers
+---
+
+<svg class="w-full h-auto" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <radialGradient id="mapGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#B89B72" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#B89B72" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="400" cy="200" rx="380" ry="180" fill="url(#mapGlow)"/>
+  <path class="fill-gold/10 stroke-gold/25 stroke-[1]" d="M120,80 Q160,60 200,70 Q240,65 260,90 Q280,110 270,140 Q250,160 220,155 Q180,150 150,130 Q120,110 120,80Z"/>
+  <path class="fill-gold/10 stroke-gold/25 stroke-[1]" d="M220,170 Q250,165 270,180 Q290,210 280,260 Q270,300 250,310 Q230,300 220,270 Q210,230 220,170Z"/>
+  <path class="fill-gold/10 stroke-gold/25 stroke-[1]" d="M380,70 Q420,60 450,75 Q470,90 460,110 Q440,125 410,120 Q385,115 380,70Z"/>
+  <path class="fill-gold/10 stroke-gold/25 stroke-[1]" d="M400,130 Q440,125 460,150 Q470,190 455,240 Q430,270 410,260 Q395,220 400,130Z"/>
+  <path class="fill-gold/10 stroke-gold/25 stroke-[1]" d="M470,60 Q540,55 600,70 Q650,90 640,130 Q610,150 560,140 Q500,130 470,60Z"/>
+  <path class="fill-gold/10 stroke-gold/25 stroke-[1]" d="M580,260 Q620,255 640,270 Q650,285 630,295 Q600,300 580,260Z"/>
+  <g>
+    <circle class="fill-gold stroke-offwhite stroke-[1.5]" cx="200" cy="110" r="5"/>
+    <circle class="fill-gold stroke-offwhite stroke-[1.5]" cx="250" cy="250" r="5"/>
+    <circle class="fill-gold stroke-offwhite stroke-[1.5]" cx="430" cy="95" r="5"/>
+    <circle class="fill-gold stroke-offwhite stroke-[1.5]" cx="445" cy="85" r="4"/>
+    <circle class="fill-gold stroke-offwhite stroke-[1.5]" cx="415" cy="100" r="4"/>
+    <circle class="fill-gold stroke-offwhite stroke-[1.5]" cx="560" cy="90" r="5"/>
+    <circle class="fill-gold stroke-offwhite stroke-[1.5]" cx="610" cy="280" r="5"/>
+  </g>
+  <g class="animate-pulse-ring">
+    <circle class="fill-none stroke-gold stroke-[1] opacity-0" cx="200" cy="110" r="8" style="animation: pulseRing 3s ease-out infinite"/>
+    <circle class="fill-none stroke-gold stroke-[1] opacity-0" cx="250" cy="250" r="8" style="animation: pulseRing 3s ease-out 0.75s infinite"/>
+    <circle class="fill-none stroke-gold stroke-[1] opacity-0" cx="430" cy="95" r="8" style="animation: pulseRing 3s ease-out 1.5s infinite"/>
+    <circle class="fill-none stroke-gold stroke-[1] opacity-0" cx="610" cy="280" r="8" style="animation: pulseRing 3s ease-out 2.25s infinite"/>
+  </g>
+</svg>
+
+<style>
+  @keyframes pulseRing {
+    0% { r: 8; opacity: 0.6; }
+    100% { r: 24; opacity: 0; }
+  }
+</style>
