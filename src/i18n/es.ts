@@ -35,8 +35,6 @@ export const es: Translation = {
       { ...COLLECTION_IMAGES[1], name: 'Sandalia Aura', category: 'Sandalia', alt: 'Sandalia artesanal en cuero' },
       { ...COLLECTION_IMAGES[2], name: 'Mule Nomadic', category: 'Mule', alt: 'Mule en cuero con diseño autoral' },
       { ...COLLECTION_IMAGES[3], name: 'Botín Winter', category: 'Bota', alt: 'Bota femenina de cuero' },
-      { ...COLLECTION_IMAGES[4], name: 'Slingback Glossy', category: 'Slingback', alt: 'Slingback elegante en cuero' },
-      { ...COLLECTION_IMAGES[5], name: 'Zueco Pastel', category: 'Zueco', alt: 'Zueco artesanal premium' },
     ],
   },
   authenticity: {
@@ -125,13 +123,13 @@ export const es: Translation = {
           'Fundación en la tradición calzadista gaúcha, con enfoque en excelencia y relaciones de confianza.',
       },
       {
-        year: '2000–2015',
+        year: 'Calidad certificada',
         title: 'Actuación Private Label',
         description:
           'Consolidación internacional produciendo para marcas alrededor del mundo con los más altos estándares de calidad.',
       },
       {
-        year: '2016–2020',
+        year: '2023',
         title: 'Diseño Autoral',
         description:
           'Desarrollo del ADN propio de la marca con colecciones creativas que celebran el trabajo manual.',
@@ -145,9 +143,9 @@ export const es: Translation = {
       },
       {
         year: 'Hoy',
-        title: 'Expansión Internacional',
+        title: 'Expansión de la marca',
         description:
-          'Presencia en más de 40 países, participación en MICAM Milano y alianza con Brazilian Footwear.',
+          'En 2025 lanzamos nuestra tienda en línea y comenzamos a posicionar nuestra marca en el mercado de la moda nacional e internacional.',
       },
     ],
   },
@@ -172,7 +170,7 @@ export const es: Translation = {
         seal: 'ABVTEX',
         title: 'Certificación ABVTEX',
         description:
-          'Sello que garantiza relaciones de trabajo justas y condiciones dignas para todos los colaboradores.',
+          'Sello Oro que garantiza relaciones de trabajo justas y condiciones dignas para todos los colaboradores.',
       },
       {
         type: 'seal',
@@ -197,8 +195,8 @@ export const es: Translation = {
   },
   cta: {
     eyebrow: 'Alianzas Comerciales',
-    title: 'Ten Killana en tu tienda',
-    text: 'Habla con nuestro equipo comercial y solicita el catálogo completo.',
+    title: 'Lleva la firma Killana a tu negocio',
+    text: 'Conoce nuestras colecciones y conversa con el equipo comercial sobre oportunidades de colaboración.',
     button: 'Solicitar Catálogo',
     contact: 'Hablar con comercial',
     catalog: 'Solicitar catálogo',
@@ -211,7 +209,7 @@ export const es: Translation = {
     social: 'Redes Sociales',
     links: {
       about: 'Sobre la Marca',
-      production: 'Producción Consciente',
+      production: 'Compromiso Killana',
       history: 'Nuestra Historia',
       certifications: 'Certificaciones',
       global: 'Presencia Global',

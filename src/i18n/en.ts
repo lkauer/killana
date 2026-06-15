@@ -35,8 +35,6 @@ export const en: Translation = {
       { ...COLLECTION_IMAGES[1], name: 'Aura Sandal', category: 'Sandal', alt: 'Handcrafted leather sandal' },
       { ...COLLECTION_IMAGES[2], name: 'Nomadic Mule', category: 'Mule', alt: 'Authorial design leather mule' },
       { ...COLLECTION_IMAGES[3], name: 'Winter Ankle Boot', category: 'Boot', alt: 'Women\'s leather ankle boot' },
-      { ...COLLECTION_IMAGES[4], name: 'Glossy Slingback', category: 'Slingback', alt: 'Elegant leather slingback' },
-      { ...COLLECTION_IMAGES[5], name: 'Pastel Clog', category: 'Clog', alt: 'Premium handcrafted clog' },
     ],
   },
   authenticity: {
@@ -125,13 +123,13 @@ export const en: Translation = {
           'Founded within the Gaúcha footwear tradition, focused on excellence and relationships of trust.',
       },
       {
-        year: '2000–2015',
+        year: 'Certified Quality',
         title: 'Private Label Operations',
         description:
           'International consolidation producing for brands around the world with the highest quality standards.',
       },
       {
-        year: '2016–2020',
+        year: '2023',
         title: 'Authorial Design',
         description:
           'Development of the brand\'s own DNA with creative collections that celebrate manual craftsmanship.',
@@ -145,9 +143,9 @@ export const en: Translation = {
       },
       {
         year: 'Today',
-        title: 'International Expansion',
+        title: 'Brand Expansion',
         description:
-          'Presence in over 40 countries, participation in MICAM Milano and partnership with Brazilian Footwear.',
+          'In 2025, we launched our e-commerce store and began positioning our brand in the national and international fashion market.',
       },
     ],
   },
@@ -172,7 +170,7 @@ export const en: Translation = {
         seal: 'ABVTEX',
         title: 'ABVTEX Certification',
         description:
-          'Seal guaranteeing fair working relationships and dignified conditions for all collaborators.',
+          'GoldSeal guaranteeing fair working relationships and dignified conditions for all collaborators.',
       },
       {
         type: 'seal',
@@ -197,8 +195,8 @@ export const en: Translation = {
   },
   cta: {
     eyebrow: 'Commercial Partnerships',
-    title: 'Bring Killana to your store',
-    text: 'Talk to our commercial team and request the complete catalog.',
+    title: 'Bring the Killana signature to your business',
+    text: 'Explore our collections and connect with our sales team to discuss partnership opportunities.',
     button: 'Request Catalog',
     contact: 'Talk to sales',
     catalog: 'Request catalog',
@@ -211,7 +209,7 @@ export const en: Translation = {
     social: 'Social Media',
     links: {
       about: 'About the Brand',
-      production: 'Conscious Production',
+      production: 'Killana Commitment',
       history: 'Our History',
       certifications: 'Certifications',
       global: 'Global Presence',

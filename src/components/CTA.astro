@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { t } = Astro.props;
-const ctaBg = 'https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1600&q=80&fm=webp';
+const ctaBg = '/images/tarja entre em contato.jpg';
 ---
 
 <section class="relative overflow-hidden" id="contato" data-cms="cta">
@@ -24,9 +24,6 @@ const ctaBg = 'https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1600&
     <div class="flex flex-wrap gap-4 justify-center">
       <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="btn-primary btn-large">
         {t.cta.button}
-      </a>
-      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="btn-outline">
-        {t.cta.contact}
       </a>
     </div>
   </div>

@@ -21,7 +21,7 @@ export const CONTACT = {
 } as const;
 
 export const COUNTERS = {
-  countries: 40,
+  countries: 30,
   continents: 5,
   years: 29,
 } as const;

@@ -1,18 +1,18 @@
 export const COLLECTION_IMAGES = [
   {
-    image: 'https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=800&q=80',
+    image: '/images/nova_coleção_01.jpg',
     altKey: 'scarpin' as const,
   },
   {
-    image: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&q=80',
+    image: '/images/nova_coleção_02.jpg',
     altKey: 'sandal' as const,
   },
   {
-    image: 'https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=600&q=80',
+    image: '/images/nova_coleção_03.jpg',
     altKey: 'mule' as const,
   },
   {
-    image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=900&q=80',
+    image: '/images/nova_coleção_04.jpg',
     altKey: 'boot' as const,
   },
   {

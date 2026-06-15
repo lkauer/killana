@@ -16,7 +16,7 @@ export const pt: Translation = {
   },
   nav: [
     { label: 'Coleção', href: '#colecao' },
-    { label: 'Produção Consciente', href: '#producao' },
+    { label: 'COMPROMISSO KILLANA', href: '#producao' },
     { label: 'Presença Global', href: '#global' },
     { label: 'Sobre', href: '#sobre' },
     { label: 'Contato', href: '#contato' },
@@ -36,8 +36,6 @@ export const pt: Translation = {
       { ...COLLECTION_IMAGES[1], name: 'Sandália Aura', category: 'Sandália', alt: 'Sandália artesanal em couro' },
       { ...COLLECTION_IMAGES[2], name: 'Mule Nomadic', category: 'Mule', alt: 'Mule em couro com design autoral' },
       { ...COLLECTION_IMAGES[3], name: 'Ankle Boot Winter', category: 'Bota', alt: 'Bota feminina de couro' },
-      { ...COLLECTION_IMAGES[4], name: 'Slingback Glossy', category: 'Slingback', alt: 'Slingback elegante em couro' },
-      { ...COLLECTION_IMAGES[5], name: 'Tamanco Pastel', category: 'Tamanco', alt: 'Tamanco artesanal premium' },
     ],
   },
   authenticity: {
@@ -54,7 +52,7 @@ export const pt: Translation = {
   },
   production: {
     eyebrow: 'Nosso compromisso',
-    title: 'Produção Consciente',
+    title: 'COMPROMISSO KILLANA',
     cards: [
       {
         icon: 'social',
@@ -117,13 +115,13 @@ export const pt: Translation = {
           'Fundação na tradição calçadista gaúcha, com foco em excelência e relações de confiança.',
       },
       {
-        year: '2000–2015',
+        year: 'qualidade atestada',
         title: 'Atuação Private Label',
         description:
           'Consolidação internacional produzindo para marcas ao redor do mundo com os mais altos padrões de qualidade.',
       },
       {
-        year: '2016–2020',
+        year: '2023',
         title: 'Design Autoral',
         description:
           'Desenvolvimento do DNA próprio da marca com coleções criativas que celebram o trabalho manual.',
@@ -137,9 +135,9 @@ export const pt: Translation = {
       },
       {
         year: 'Hoje',
-        title: 'Expansão Internacional',
+        title: 'Expansão da marca',
         description:
-          'Presença em mais de 40 países, participação na MICAM Milano e parceria com o Brazilian Footwear.',
+          'Em 2025 lançamos nosso e-commerce e passamos a posicionar nossa marca no mercado da moda nacional e internacional.',
       },
     ],
   },
@@ -164,7 +162,7 @@ export const pt: Translation = {
         seal: 'ABVTEX',
         title: 'Certificação ABVTEX',
         description:
-          'Selo que garante relações de trabalho justas e condições dignas para todos os colaboradores.',
+          'Selo ouro que garante relações de trabalho justas e condições dignas para todos os colaboradores.',
       },
       {
         type: 'seal',
@@ -189,8 +187,8 @@ export const pt: Translation = {
   },
   cta: {
     eyebrow: 'Parcerias Comerciais',
-    title: 'Tenha Killana na sua loja',
-    text: 'Fale com nosso time comercial e solicite o catálogo completo.',
+    title: 'Leve a assinatura Killana para o seu negócio',
+    text: 'Conheça nossas coleções e converse com o time comercial sobre oportunidades de parceria.',
     button: 'Solicitar Catálogo',
     contact: 'Falar com comercial',
     catalog: 'Solicitar catálogo',
@@ -203,7 +201,7 @@ export const pt: Translation = {
     social: 'Redes Sociais',
     links: {
       about: 'Sobre a Marca',
-      production: 'Produção Consciente',
+      production: 'COMPROMISSO KILLANA',
       history: 'Nossa História',
       certifications: 'Certificações',
       global: 'Presença Global',
