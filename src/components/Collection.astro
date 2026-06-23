@@ -27,25 +27,17 @@ const gridClasses = [
 
     <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
       {t.collection.items.map((item, i) => (
-        <figure
-          class:list={['group relative overflow-hidden fade-in', gridClasses[i]]}
-          data-delay={i * 80}
-          data-cms-item
-        >
+        <figure class:list={['relative overflow-hidden', gridClasses[i]]} data-cms-item>
           <div class="overflow-hidden bg-beige min-h-[280px] md:min-h-[320px] h-full">
             <Image
               src={item.image}
               alt={item.alt}
               width={800}
               height={1000}
-              class="w-full h-full object-cover transition-transform duration-700 ease-luxury group-hover:scale-105"
+              class="w-full h-full object-cover"
               loading="lazy"
             />
           </div>
-          <figcaption class="absolute bottom-0 left-0 right-0 p-5 md:p-6 bg-gradient-to-t from-softblack/70 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-400 ease-luxury md:translate-y-0 md:opacity-0 md:group-hover:opacity-100">
-            <span class="block text-[10px] tracking-[0.15em] uppercase text-gold-light mb-1">{item.category}</span>
-            <span class="font-serif text-lg italic text-offwhite">{item.name}</span>
-          </figcaption>
         </figure>
       ))}
     </div>

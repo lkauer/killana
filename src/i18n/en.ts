@@ -200,6 +200,10 @@ export const en: Translation = {
     button: 'Request Catalog',
     contact: 'Talk to sales',
     catalog: 'Request catalog',
+    representative: 'Representative',
+    phone: 'Phone',
+    region: 'Region',
+    internalTeam: 'INTERNAL TEAM / KURT',
   },
   footer: {
     tagline: 'Artisanal production of women\'s footwear',

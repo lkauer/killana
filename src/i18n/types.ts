@@ -99,6 +99,10 @@ export interface Translation {
     button: string;
     contact: string;
     catalog: string;
+    representative: string;
+    phone: string;
+    region: string;
+    internalTeam: string;
   };
   footer: {
     tagline: string;

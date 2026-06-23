@@ -200,6 +200,10 @@ export const es: Translation = {
     button: 'Solicitar Catálogo',
     contact: 'Hablar con comercial',
     catalog: 'Solicitar catálogo',
+    representative: 'Representante',
+    phone: 'Teléfono',
+    region: 'Región',
+    internalTeam: 'EQUIPO INTERNO / KURT',
   },
   footer: {
     tagline: 'Producción artesanal de calzado femenino',
