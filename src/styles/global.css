@@ -73,6 +73,15 @@
     @apply opacity-100 translate-y-0;
   }
 
+  .carousel-scroll {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .carousel-item {
+    scroll-snap-align: start;
+  }
+
   .nav-link {
     @apply relative text-xs tracking-[0.14em] uppercase py-1 transition-colors duration-300;
   }
@@ -85,6 +94,15 @@
   .nav-link:hover::after,
   .nav-link.is-active::after {
     @apply w-full;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }
 

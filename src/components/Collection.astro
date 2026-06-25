@@ -16,6 +16,29 @@ const gridClasses = [
   'md:col-span-3',
   'md:col-span-4 md:row-span-2',
 ];
+
+const carouselImages = [
+  '/images/carrossel/6500003-CRISTAL_OURO.JPG',
+  '/images/carrossel/7110084-CRISTAL_OURO.JPG',
+  '/images/carrossel/7300016-SHOW_CAPUCCINO.JPG',
+  '/images/carrossel/7750014-TORINO_COIO.JPG',
+  '/images/carrossel/7880022-TORINO_GRANITA.JPG',
+  '/images/carrossel/7900071-CAMURCA_TAVIO.JPG',
+  '/images/carrossel/7950003-CRISTAL_OURO.JPG',
+  '/images/carrossel/8000026-TORINO_COIO.JPG',
+  '/images/carrossel/8300010-SNAKE_CAMEL.JPG',
+  '/images/carrossel/8370010-TORINO_WINE.JPG',
+  '/images/carrossel/8790004-CRACKED_JAVA.JPG',
+  '/images/carrossel/8820007-CRISTAL_OURO.JPG',
+  '/images/carrossel/8830003-TORINO_WINE.JPG',
+  '/images/carrossel/8910005-CRACKED_JAVA.JPG',
+  '/images/carrossel/8920004-TORINO_WINE.JPG',
+  '/images/carrossel/8930008-CRISTAL_OURO.JPG',
+  '/images/carrossel/8940005-CAMURCA_COIO.JPG',
+  '/images/carrossel/8950002-CROCO_CINAMON.JPG',
+  '/images/carrossel/8960004-CRACKED_ANIS.JPG',
+  '/images/carrossel/9120006-CAMURCA_COGNAC%20(2).JPG',
+];
 ---
 
 <section class="section-padding" id="colecao" data-cms="collection">
@@ -41,5 +64,52 @@ const gridClasses = [
         </figure>
       ))}
     </div>
+
+    <div class="mt-10 relative group">
+      <div class="overflow-x-auto scroll-smooth no-scrollbar carousel-scroll" id="collection-carousel">
+        <div class="inline-flex gap-4 md:gap-6 pb-4">
+          {carouselImages.map((src) => (
+            <div class="min-w-[280px] sm:min-w-[320px] md:min-w-[360px] flex-shrink-0 overflow-hidden rounded-[1.25rem] bg-beige shadow-lg carousel-item">
+              <img src={src} alt="" class="w-full h-64" loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <button
+        class="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 w-11 h-11 items-center justify-center rounded-full bg-softblack/80 text-offwhite shadow-lg hover:bg-softblack transition-opacity duration-300 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto"
+        type="button"
+        data-action="prev"
+        aria-label="Scroll carousel left"
+      >
+        ‹
+      </button>
+      <button
+        class="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 w-11 h-11 items-center justify-center rounded-full bg-softblack/80 text-offwhite shadow-lg hover:bg-softblack transition-opacity duration-300 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto"
+        type="button"
+        data-action="next"
+        aria-label="Scroll carousel right"
+      >
+        ›
+      </button>
+    </div>
   </div>
 </section>
+
+<script type="module">
+  const carousel = document.getElementById('collection-carousel');
+  const prevBtn = document.querySelector('[data-action="prev"]');
+  const nextBtn = document.querySelector('[data-action="next"]');
+
+  if (carousel && prevBtn && nextBtn) {
+    const scrollStep = Math.round(carousel.offsetWidth * 0.8);
+
+    prevBtn.addEventListener('click', () => {
+      carousel.scrollBy({ left: -scrollStep, behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', () => {
+      carousel.scrollBy({ left: scrollStep, behavior: 'smooth' });
+    });
+  }
+</script>
