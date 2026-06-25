@@ -1,6 +1,5 @@
 ---
 import type { Translation } from '@/i18n/types';
-import WorldMap from './icons/WorldMap.astro';
 import { COUNTERS } from '@/data/site';
 
 interface Props {
@@ -60,16 +59,7 @@ const { t } = Astro.props;
     </div>
 
     <div class="fade-in" data-delay="200">
-      <div class="p-5">
-        <WorldMap />
-      </div>
-      <ul class="flex flex-wrap gap-2 justify-center mt-6" aria-label="Countries served">
-        {t.global.countries.map((country) => (
-          <li class="text-[10px] tracking-widest uppercase text-offwhite/50 px-3 py-1.5 border border-gold/20 hover:text-gold hover:border-gold transition-colors duration-300">
-            {country}
-          </li>
-        ))}
-      </ul>
+        <img src="/images/mapa_mundi.png" alt="Mapa mundi da Killana" class="w-full h-auto rounded-[1.5rem] object-cover" />
     </div>
   </div>
 </section>
