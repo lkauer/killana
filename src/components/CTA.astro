@@ -1,6 +1,6 @@
 ---
 import type { Translation } from '@/i18n/types';
-import { WHATSAPP_URL } from '@/data/site';
+import { EXPORT_WHATSAPP_URL, WHATSAPP_URL } from '@/data/site';
 
 interface Props {
   t: Translation;
@@ -8,6 +8,16 @@ interface Props {
 
 const { t } = Astro.props;
 const ctaBg = '/images/tarja entre em contato.jpg';
+const contacts = [
+  { name: 'ERNI', phone: '51 99993-1630', region: 'RIO GRANDE DO SUL, SANTA CATARINA' },
+  { name: 'MAIKEL', phone: '41 99665-4114', region: 'PARANÁ' },
+  { name: 'NÉIA', phone: '11 99901-5673', region: 'SÃO PAULO, CAPITAL/GRANDE SÃO PAULO, LITORAL/VALE DO PARAÍBA' },
+  { name: 'MURILO', phone: '81 99651-6881', region: 'INTERIOR SÃO PAULO, BRAGANÇA PAULISTA/CAMPINAS, INTERIOR SÃO PAULO' },
+  { name: 'FERNANDO', phone: '61 99995-1031', region: 'GOIÁS/DISTRITO FEDERAL' },
+  { name: 'TAYSE', phone: '71 98711-6071', region: 'BAHIA/SERGIPE' },
+  { name: t.cta.internalTeam, phone: '51 99566-8823', region: 'RJ/ES/MG/MT/MS, AL/PE/PB/RN + NORTE' },
+  { name: 'IGOR', phone: '27 99229-9460', region: 'ESPÍRITO SANTO' },
+];
 ---
 
 <section class="relative overflow-hidden" id="contato" data-cms="cta">
@@ -23,7 +33,10 @@ const ctaBg = '/images/tarja entre em contato.jpg';
     <p class="text-base md:text-lg text-offwhite/85 max-w-lg mx-auto mb-10">{t.cta.text}</p>
     <div class="flex flex-wrap gap-4 justify-center">
       <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="btn-primary btn-large">
-        {t.cta.button}
+        {t.cta.contact}
+      </a>
+      <a href={EXPORT_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="btn-primary btn-large">
+        {t.cta.exportSales}
       </a>
     </div>
 
@@ -31,52 +44,28 @@ const ctaBg = '/images/tarja entre em contato.jpg';
       <h3 class="font-serif text-2xl md:text-3xl font-normal mb-6">EQUIPE DE VENDAS MULTIMARCAS - KILLANA</h3>
 
       <div class="overflow-hidden rounded-3xl border border-offwhite/10 bg-white/5">
-        <div class="grid grid-cols-[180px_180px_1fr] gap-4 px-6 py-4 text-xs uppercase tracking-[0.2em] text-offwhite/70 border-b border-offwhite/10">
+        <div class="hidden sm:grid sm:grid-cols-[180px_180px_1fr] gap-4 px-6 py-4 text-xs uppercase tracking-[0.2em] text-offwhite/70 border-b border-offwhite/10">
           <span>{t.cta.representative}</span>
           <span>{t.cta.phone}</span>
           <span>{t.cta.region}</span>
         </div>
         <div class="divide-y divide-offwhite/10 text-sm md:text-base">
-          <div class="grid grid-cols-[180px_180px_1fr] gap-4 px-6 py-4 items-start">
-            <span class="font-semibold uppercase">ERNI</span>
-            <span class="font-mono">51 99993-1630</span>
-            <span>RIO GRANDE DO SUL<br />SANTA CATARINA</span>
-          </div>
-          <div class="grid grid-cols-[180px_180px_1fr] gap-4 px-6 py-4 items-start">
-            <span class="font-semibold uppercase">MAIKEL</span>
-            <span class="font-mono">41 99665-4114</span>
-            <span>PARANÁ</span>
-          </div>
-          <div class="grid grid-cols-[180px_180px_1fr] gap-4 px-6 py-4 items-start">
-            <span class="font-semibold uppercase">NÉIA</span>
-            <span class="font-mono">11 99901-5673</span>
-            <span>SÃO PAULO<br />CAPITAL/GRANDE SÃO PAULO<br />LITORAL/VALE DO PARAÍBA</span>
-          </div>
-          <div class="grid grid-cols-[180px_180px_1fr] gap-4 px-6 py-4 items-start">
-            <span class="font-semibold uppercase">MURILO</span>
-            <span class="font-mono">81 99651-6881</span>
-            <span>INTERIOR SÃO PAULO<br />BRAGANÇA PAULISTA/CAMPINAS<br />INTERIOR SÃO PAULO</span>
-          </div>
-          <div class="grid grid-cols-[180px_180px_1fr] gap-4 px-6 py-4 items-start">
-            <span class="font-semibold uppercase">FERNANDO</span>
-            <span class="font-mono">61 99995-1031</span>
-            <span>GOIÁS/DISTRITO FEDERAL</span>
-          </div>
-          <div class="grid grid-cols-[180px_180px_1fr] gap-4 px-6 py-4 items-start">
-            <span class="font-semibold uppercase">TAYSE</span>
-            <span class="font-mono">71 98711-6071</span>
-            <span>BAHIA/SERGIPE</span>
-          </div>
-          <div class="grid grid-cols-[180px_180px_1fr] gap-4 px-6 py-4 items-start">
-            <span class="font-semibold uppercase">{t.cta.internalTeam}</span>
-            <span class="font-mono">51 99566-8823</span>
-            <span>RJ/ES/MG/MT/MS<br />AL/PE/PB/RN + NORTE</span>
-          </div>
-          <div class="grid grid-cols-[180px_180px_1fr] gap-4 px-6 py-4 items-start">
-            <span class="font-semibold uppercase">IGOR</span>
-            <span class="font-mono">27 99229-9460</span>
-            <span>ESPÍRITO SANTO</span>
-          </div>
+          {contacts.map((contact) => (
+            <div class="grid gap-3 px-4 py-4 sm:grid-cols-[180px_180px_1fr] sm:gap-4 sm:items-start sm:px-6">
+              <div class="flex items-center justify-between gap-3 sm:block">
+                <span class="text-[0.65rem] uppercase tracking-[0.2em] text-offwhite/60 sm:hidden">{t.cta.representative}</span>
+                <span class="font-semibold uppercase">{contact.name}</span>
+              </div>
+              <div class="flex items-center justify-between gap-3 sm:block">
+                <span class="text-[0.65rem] uppercase tracking-[0.2em] text-offwhite/60 sm:hidden">{t.cta.phone}</span>
+                <span class="font-mono">{contact.phone}</span>
+              </div>
+              <div class="flex items-start justify-between gap-3 sm:block">
+                <span class="text-[0.65rem] uppercase tracking-[0.2em] text-offwhite/60 sm:hidden">{t.cta.region}</span>
+                <span class="whitespace-normal break-words">{contact.region}</span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

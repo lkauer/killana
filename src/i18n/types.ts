@@ -98,6 +98,7 @@ export interface Translation {
     text: string;
     button: string;
     contact: string;
+    exportSales: string;
     catalog: string;
     representative: string;
     phone: string;

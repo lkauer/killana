@@ -69,8 +69,8 @@ const carouselImages = [
       <div class="overflow-x-auto scroll-smooth no-scrollbar carousel-scroll" id="collection-carousel">
         <div class="inline-flex gap-4 md:gap-6 pb-4">
           {carouselImages.map((src) => (
-            <div class="min-w-[280px] sm:min-w-[320px] md:min-w-[360px] flex-shrink-0 overflow-hidden rounded-[1.25rem] bg-beige shadow-lg carousel-item">
-              <img src={src} alt="" class="w-full h-64" loading="lazy" />
+            <div class="w-[280px] sm:w-[320px] md:w-[360px] aspect-square flex-shrink-0 overflow-hidden rounded-[1.25rem] bg-beige shadow-lg carousel-item">
+              <img src={src} alt="" class="w-full h-full object-cover" loading="lazy" />
             </div>
           ))}
         </div>

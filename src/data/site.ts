@@ -1,5 +1,6 @@
 export const SITE_URL = 'https://killana.com.br';
 export const WHATSAPP_URL = 'https://wa.me/555198533616';
+export const EXPORT_WHATSAPP_URL = 'https://wa.me/5551991878853';
 
 export const SOCIAL_LINKS = {
   instagram: 'https://www.instagram.com/killanaoficial/',

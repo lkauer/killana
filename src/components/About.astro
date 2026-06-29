@@ -1,6 +1,6 @@
 ---
 import type { Translation } from '@/i18n/types';
-import { WHATSAPP_URL } from '@/data/site';
+import { EXPORT_WHATSAPP_URL, WHATSAPP_URL } from '@/data/site';
 
 interface Props {
   t: Translation;
@@ -45,9 +45,14 @@ const { t } = Astro.props;
     </div>
 
     <div class="text-center mt-16 fade-in">
-      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="btn-primary btn-outline-dark">
-        {t.cta.contact}
-      </a>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="btn-primary btn-outline-dark">
+          {t.cta.contact}
+        </a>
+        <a href={EXPORT_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="btn-primary btn-outline-dark">
+          {t.cta.exportSales}
+        </a>
+      </div>
     </div>
   </div>
 </section>
