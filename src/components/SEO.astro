@@ -8,7 +8,7 @@ interface Props {
   ogImage?: string;
 }
 
-const { t, ogImage = 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=1200&q=80&fm=jpg' } = Astro.props;
+const { t, ogImage = `${SITE_URL}/images/hero.jpeg` } = Astro.props;
 const canonical = getCanonicalUrl(t.locale);
 const alternates = getAlternateUrls(t.locale);
 
